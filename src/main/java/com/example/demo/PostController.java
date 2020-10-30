@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController("/post")
-@CrossOrigin("*")
 public class PostController {
 
     @Autowired
@@ -20,6 +19,7 @@ public class PostController {
         return postService.getPosts();
     }
 
+    @CrossOrigin
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
     public Post addPosts(@RequestBody Post request) {
@@ -34,7 +34,7 @@ public class PostController {
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public Post deletePosts(Long id) throws ChangeSetPersister.NotFoundException {
+    public Post deletePosts(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
         return postService.deletePost(id);
     }
 }
