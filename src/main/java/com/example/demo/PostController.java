@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class PostController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class PostController {
         return postService.getPosts();
     }
 
-    @CrossOrigin
+
     @PostMapping(value = "/post")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Post addPosts(@RequestBody Post request) {
