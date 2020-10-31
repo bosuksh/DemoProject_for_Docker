@@ -37,7 +37,7 @@ function showData(request) {
         let listItem = document.createElement("li");
         
         let para = document.createElement("p");
-        para.innerText = note.text;
+        para.innerText = note.content;
         para.setAttribute("onclick", "addInput(event)")
         listItem.setAttribute("id", note.id);
         
